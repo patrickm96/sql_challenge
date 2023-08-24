@@ -7,6 +7,6 @@ The following resources were referenced to complete this challenge:
 3. Postgres data types - https://www.postgresql.org/docs/current/datatype.html
 4. Oracle sysdate Postgres equivalent - https://stackoverflow.com/questions/16960432/what-is-postgresql-equivalent-of-sysdate-from-oracle
 5. Postgres foreign key constraint - https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-foreign-key/
-
+6. Composite key - Instructor Eli Rosenberg covered this during class
 
 

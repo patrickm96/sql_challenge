@@ -48,9 +48,10 @@ create table departments (
 
 --Create dept_emp table
 create table dept_emp (
-	dept_emp_id serial Primary Key,
+	dept_emp_id serial,
 	emp_no int NOT NULL,
 	dept_no varchar(8) NOT NULL,
+	PRIMARY KEY (emp_no, dept_no),
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
@@ -60,9 +61,10 @@ create table dept_emp (
 
 --Create dept_manager table
 create table dept_manager (
-	dept_manager_id serial Primary Key,
+	dept_manager_id serial,
 	dept_no varchar(8) NOT NULL,
 	emp_no int NOT NULL,
+	PRIMARY KEY (dept_no, emp_no),
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );

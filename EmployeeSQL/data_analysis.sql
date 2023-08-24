@@ -4,7 +4,7 @@ select * from employees;
 select * from salaries;
 select * from departments;
 select * from dept_emp;
-select * frm dept_manager;
+select * from dept_manager;
 
 /*List the employee number, last name, first name, sex, and salary of each employee.*/
 select distinct

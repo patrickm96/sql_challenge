@@ -3,7 +3,7 @@
 create table titles (
 	titles_id serial,
 	title_id varchar(8) PRIMARY KEY,
-	title varchar(64) UNIQUE
+	title varchar(64) UNIQUE NOT NULL --Unique to avoid duplicate entries with same title
 );
 
 --drop table titles;
@@ -12,7 +12,7 @@ create table titles (
 --Create employee table
 create table employees (
 	employees_id serial,
-	emp_no int Primary Key NOT NULL,
+	emp_no int PRIMARY KEY NOT NULL,
 	emp_title_id varchar(8) NOT NULL,
 	birth_date date NOT NULL,
 	first_name varchar(32) NOT NULL,
@@ -28,7 +28,7 @@ create table employees (
 --Create salaries table
 create table salaries (
 	salaries_id serial,
-	emp_no int Primary Key,
+	emp_no int PRIMARY KEY,
 	salary int NOT NULL,
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
@@ -39,8 +39,8 @@ create table salaries (
 --Create departments table
 create table departments (
 	departments_id serial,
-	dept_no varchar(8) Primary Key,
-	dept_name varchar(64) NOT NULL
+	dept_no varchar(8) PRIMARY KEY,
+	dept_name varchar(64) UNIQUE NOT NULL ----Unique to avoid duplicate entries with same department name
 );
 
 --drop table departments;

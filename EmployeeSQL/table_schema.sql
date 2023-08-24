@@ -2,8 +2,8 @@
 --Create titles table
 create table titles (
 	titles_id serial,
-	title_id varchar(8) Primary Key,
-	title varchar(64) NOT NULL
+	title_id varchar(8) PRIMARY KEY,
+	title varchar(64) UNIQUE
 );
 
 --drop table titles;
@@ -14,7 +14,7 @@ create table employees (
 	employees_id serial,
 	emp_no int Primary Key NOT NULL,
 	emp_title_id varchar(8) NOT NULL,
-	birth_date date,
+	birth_date date NOT NULL,
 	first_name varchar(32) NOT NULL,
 	last_name varchar(32) NOT NULL,
 	sex varchar(1) NOT NULL CHECK (sex in ('M','F')),  --Check sex equals M or F
@@ -49,9 +49,9 @@ create table departments (
 --Create dept_emp table
 create table dept_emp (
 	dept_emp_id serial,
-	emp_no int NOT NULL,
+	emp_no int,
 	dept_no varchar(8) NOT NULL,
-	PRIMARY KEY (emp_no, dept_no),
+	PRIMARY KEY (emp_no, dept_no), ----Composite key since some employees are part of multiple departments
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
@@ -64,7 +64,7 @@ create table dept_manager (
 	dept_manager_id serial,
 	dept_no varchar(8) NOT NULL,
 	emp_no int NOT NULL,
-	PRIMARY KEY (dept_no, emp_no),
+	PRIMARY KEY (dept_no, emp_no), --Composite key since an employee can manage multiple departments
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
